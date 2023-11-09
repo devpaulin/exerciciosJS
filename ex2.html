@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor de Temperatura</title>
+</head>
+<body style="background-color: grey;">
+    <h1>Conversor de Fahrenheit ou Celsius.</h1>
+
+    <label for="tempInput">Digite a temperatura:</label>
+    <input type="text" id="tempInput" placeholder="Digite a temperatura" />
+
+    <label for="tempType">Escolha a unidade de temperatura:</label>
+    <select id="tempType">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+    </select>
+
+    <button onclick="converterTemperatura()">Converter</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function converterTemperatura() {
+            const tempInput = document.getElementById("tempInput").value;
+            const tempType = document.getElementById("tempType").value;
+            const resultadoElement = document.getElementById("resultado");
+
+            if (tempType === "celsius") {
+                const fahrenheit = (tempInput * 9/5) + 32;
+                resultadoElement.innerHTML = `${tempInput} graus, essa Temperatura em Celsius são equivalentes a ${fahrenheit} graus Fahrenheit.`;
+            } else if (tempType === "fahrenheit") {
+                const celsius = (tempInput - 32) * 5/9;
+                resultadoElement.innerHTML = `${tempInput} graus,essa Temperatura em Fahrenheit são equivalentes a ${celsius} graus Celsius.`;
+            } else {
+                resultadoElement.innerHTML = "Escolha uma unidade de temperatura válida.";
+            }
+        }
+    </script>
+</body>
+</html>

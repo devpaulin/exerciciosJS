@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Vendas</title>
+</head>
+<body>
+    <h1>Exercício 3</h1>
+
+    <h2>Produto 1</h2>
+    <label for="nome1">Nome do Produto:</label>
+    <input type="text" id="nome1"><br>
+    <label for="valor1">Valor do Produto (R$):</label>
+    <input type="number" id="valor1" step="0.01"><br>
+    <label for="quantidade1">Quantidade Vendida:</label>
+    <input type="number" id="quantidade1"><br>
+
+    <h2>Produto 2</h2>
+    <label for="nome2">Nome do Produto:</label>
+    <input type="text" id="nome2"><br>
+    <label for="valor2">Valor do Produto (R$):</label>
+    <input type="number" id="valor2" step="0.01"><br>
+    <label for="quantidade2">Quantidade Vendida:</label>
+    <input type="number" id="quantidade2"><br>
+
+    <h2>Produto 3</h2>
+    <label for="nome3">Nome do Produto:</label>
+    <input type="text" id="nome3"><br>
+    <label for="valor3">Valor do Produto (R$):</label>
+    <input type="number" id="valor3" step="0.01"><br>
+    <label for="quantidade3">Quantidade Vendida:</label>
+    <input type="number" id="quantidade3"><br>
+
+    <button onclick="calcularTotal()">Calcular Total</button>
+
+    <p>Total da Venda: R$ <span id="totalVenda">0.00</span></p>
+
+    <script>
+        function calcularTotal() {
+            var valor1 = parseFloat(document.getElementById("valor1").value) || 0;
+            var quantidade1 = parseInt(document.getElementById("quantidade1").value) || 0;
+            var valor2 = parseFloat(document.getElementById("valor2").value) || 0;
+            var quantidade2 = parseInt(document.getElementById("quantidade2").value) || 0;
+            var valor3 = parseFloat(document.getElementById("valor3").value) || 0;
+            var quantidade3 = parseInt(document.getElementById("quantidade3").value) || 0;
+
+            var total = (valor1 * quantidade1) + (valor2 * quantidade2) + (valor3 * quantidade3);
+
+            document.getElementById("totalVenda").textContent = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>

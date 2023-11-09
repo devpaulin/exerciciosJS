@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Peso Ideal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="number"] {
+      width: 100px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    select {
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 8px 20px;
+      background-color: #4c5baf;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Peso Ideal</h1>
+  <label for="altura">Altura (em metros):</label>
+  <input type="number" id="altura" step="0.01" min="0" placeholder="Altura" required>
+  <br>
+  <label for="sexo">Sexo:</label>
+  <select id="sexo">
+    <option value="masculino">Masculino</option>
+    <option value="feminino">Feminino</option>
+  </select>
+  <br>
+  <button onclick="calcularPesoIdeal()">Calcular</button>
+  <div id="result"></div>
+
+  <script>
+    function calcularPesoIdeal() {
+      const altura = parseFloat(document.getElementById('altura').value);
+      const sexo = document.getElementById('sexo').value;
+      let pesoIdeal;
+
+      if (sexo === 'masculino') {
+        pesoIdeal = (72.7 * altura) - 58;
+      } else if (sexo === 'feminino') {
+        pesoIdeal = (62.1 * altura) - 44.7;
+      }
+
+      const resultadoElement = document.getElementById('result');
+      resultadoElement.innerHTML = `
+        <h2>Peso Ideal:</h2>
+        <p>Seu peso ideal é aproximadamente ${pesoIdeal.toFixed(2)} kg.</p>
+      `;
+    }
+  </script>
+</body>
+</html>
